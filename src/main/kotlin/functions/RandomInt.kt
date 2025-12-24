@@ -13,7 +13,12 @@ internal class RandomInt : TemplateFunction {
             1 -> {
                 val max = args[0].toIntOrNull()
                     ?: throw IllegalArgumentException("randomInt(max): max must be an integer, got '${args[0]}'")
-                ctx.random.nextInt(max + 1).toString()
+
+                return if (max < 0) {
+                    ctx.random.nextInt(max, 0).toString()
+                } else {
+                    ctx.random.nextInt(max + 1).toString()
+                }
             }
 
             2 -> {
