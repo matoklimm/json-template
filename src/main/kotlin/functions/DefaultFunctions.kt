@@ -6,6 +6,10 @@ internal object DefaultFunctions {
 
     fun registerInto(registry: FunctionRegistry) {
         registry.register(RandomInt())
+        registry.register(RandomString())
+        registry.register(RandomBool())
+        registry.register(RandomTimestamp())
+        registry.register(Timestamp())
     }
 
 }
