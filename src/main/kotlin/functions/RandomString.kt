@@ -12,7 +12,7 @@ internal class RandomString : TemplateFunction {
 
     override fun execute(args: MutableList<String>, ctx: ExecutionContext): String {
         return when (args.size) {
-            0 -> getRandomString(32, ctx)
+            0 -> getRandomString(12, ctx)
 
             1 -> {
                 val max = args[0].toIntOrNull()

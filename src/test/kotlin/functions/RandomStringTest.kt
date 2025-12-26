@@ -23,8 +23,8 @@ class RandomStringTest {
     fun `no args returns any string with length of 32`() {
         val result = fn.execute(mutableListOf(), ctx)
         // deterministic because of seed
-        assertEquals(32, result.length)
-        assertEquals("ON6DJSIc6Wms5O4NgmKbUVWXG5ck2LbH", result)
+        assertEquals(12, result.length)
+        assertEquals("ON6DJSIc6Wms", result)
     }
 
     @Test
