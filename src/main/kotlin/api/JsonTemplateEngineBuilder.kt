@@ -16,8 +16,14 @@ class JsonTemplateEngineBuilder {
         registry.register(fn)
     }
 
+    fun withDefault(vararg functions: DefaultFunction): JsonTemplateEngineBuilder = apply {
+        functions.forEach {
+            registry.register(DefaultFunctions.create(it))
+        }
+    }
+
     fun withDefaults(): JsonTemplateEngineBuilder = apply {
-        DefaultFunctions.registerInto(registry)
+        DefaultFunctions.registerAll(registry)
     }
 
     fun withExecutionContext(ctx: ExecutionContext): JsonTemplateEngineBuilder = apply {
