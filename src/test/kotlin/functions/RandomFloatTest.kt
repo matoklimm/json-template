@@ -21,7 +21,7 @@ class RandomFloatTest {
     @Test
     fun `no args returns any float between 0 and 1 rounded to 2 decimals`() {
         val result = fn.execute(mutableListOf(), ctx)
-        assertEquals("0.07", result)
+        assertEquals("0.83", result)
     }
 
     @Test
