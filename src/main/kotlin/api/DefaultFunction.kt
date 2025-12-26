@@ -1,5 +1,8 @@
 package io.github.klimmmax.api
 
+/**
+ * The list of default functions. Each can be registered individually via [JsonTemplateEngineBuilder.withDefault]
+ * */
 enum class DefaultFunction {
     RANDOM_BOOL,
     RANDOM_INT,
