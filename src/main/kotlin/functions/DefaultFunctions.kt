@@ -10,6 +10,7 @@ internal object DefaultFunctions {
         registry.register(RandomBool())
         registry.register(RandomTimestamp())
         registry.register(Timestamp())
+        registry.register(Count())
     }
 
 }
