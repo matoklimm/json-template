@@ -13,6 +13,7 @@ internal object DefaultFunctions {
             DefaultFunction.RANDOM_FLOAT -> RandomFloat()
             DefaultFunction.RANDOM_STRING -> RandomString()
             DefaultFunction.RANDOM_TIMESTAMP -> RandomTimestamp()
+            DefaultFunction.RANDOM_UUID -> RandomUuid()
             DefaultFunction.TIMESTAMP -> Timestamp()
             DefaultFunction.COUNT -> Count()
         }

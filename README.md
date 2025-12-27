@@ -198,6 +198,11 @@ class YourApplication {
     ${randomTimestamp(start, end)}
     ${randomTimestamp(2025-12-23T01:42:00Z,2025-12-25T13:37:00Z)}   -> 2025-12-25T02:23:10.012Z
 
+### randomUuid
+    randomUuid() is pretty self-explaining and returns a random UUID :D
+
+    ${randomUuid()}
+
 ### count
     count() is a stateful function will increase its value throughout multiple calls within one template
     **Note** We are using LONG to store the current counter value and have no overflow protection so if you e.g. are at

@@ -14,6 +14,7 @@ enum class DefaultFunction {
     RANDOM_FLOAT,
     RANDOM_STRING,
     RANDOM_TIMESTAMP,
+    RANDOM_UUID,
     TIMESTAMP,
     COUNT
 }
