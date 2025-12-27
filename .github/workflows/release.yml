@@ -15,12 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java 25
+      - name: Set up Maven settings
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '25'
+          java-version: 25
           cache: maven
+          server-id: central
+          server-username: ${{ secrets.CENTRAL_USERNAME }}
+          server-password: ${{ secrets.CENTRAL_TOKEN }}
 
       - name: Import GPG key
         run: |
@@ -32,24 +35,9 @@ jobs:
       - name: Set release version
         run: mvn versions:set -DnewVersion=${{ inputs.version }}
 
-      - name: Configure Maven settings.xml
-        run: |
-          mkdir -p ~/.m2
-          cat > ~/.m2/settings.xml << 'EOF'
-          <settings>
-            <servers>
-              <server>
-                <id>central</id>
-                <username>${env.MAVEN_USERNAME}</username>
-                <password>${env.MAVEN_PASSWORD}</password>
-              </server>
-            </servers>
-          </settings>
-          EOF
-
       - name: Deploy to Maven Central
         run: mvn clean deploy -P release
         env:
           MAVEN_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
