@@ -32,6 +32,21 @@ jobs:
       - name: Set release version
         run: mvn versions:set -DnewVersion=${{ inputs.version }}
 
+      - name: Configure Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml << 'EOF'
+          <settings>
+            <servers>
+              <server>
+                <id>central</id>
+                <username>${env.MAVEN_USERNAME}</username>
+                <password>${env.MAVEN_PASSWORD}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
+
       - name: Deploy to Maven Central
         run: mvn clean deploy -P release
         env:
