@@ -19,6 +19,7 @@ class JsonTemplateEngineBuilder {
      *         is already registered.
      */
     fun register(fn: TemplateFunction): JsonTemplateEngineBuilder = apply {
+        requireNotNull(fn) { throw IllegalArgumentException("TemplateFunction must not be null") }  // This is just added for better Java compatibility
         registry.register(fn)
     }
 
