@@ -7,7 +7,7 @@ internal class ExpressionParser {
 
         val nameEnd = trimmed.indexOf('(')
         if (nameEnd == -1) {
-            return Expression(trimmed, emptyList())
+            return Expression(trimmed, mutableListOf())
         }
 
         val name = trimmed.take(nameEnd)
@@ -17,6 +17,7 @@ internal class ExpressionParser {
             .split(',')
             .map { it.trim() }
             .filter { it.isNotEmpty() }
+            .toMutableList()
 
         return Expression(name, args)
     }
