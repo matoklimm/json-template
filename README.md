@@ -1,4 +1,4 @@
-# Json-Template
+# Kotlin/Java JsonTemplate
 
 A **lightweight Kotlin/Java library** for rendering JSON-like templates
 by **replacing function expressions with generated values**.
