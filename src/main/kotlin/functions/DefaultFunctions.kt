@@ -16,6 +16,7 @@ internal object DefaultFunctions {
             DefaultFunction.RANDOM_UUID -> RandomUuid()
             DefaultFunction.TIMESTAMP -> Timestamp()
             DefaultFunction.COUNT -> Count()
+            DefaultFunction.PICK_ONE -> PickOne()
         }
 
     fun registerAll(registry: FunctionRegistry) {

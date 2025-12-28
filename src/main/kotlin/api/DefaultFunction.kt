@@ -16,5 +16,6 @@ enum class DefaultFunction {
     RANDOM_TIMESTAMP,
     RANDOM_UUID,
     TIMESTAMP,
-    COUNT
+    COUNT,
+    PICK_ONE,
 }
