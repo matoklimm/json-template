@@ -86,7 +86,7 @@ probably **not** what you want.
 <dependency>
   <groupId>io.github.matoklimm</groupId>
   <artifactId>json-template</artifactId>
-  <version>1.6</version>
+  <version>1.7</version>
 </dependency>
 ```
 
@@ -188,6 +188,12 @@ class YourApplication {
     timestamp() will always return a OffsetDateTime.now() as String in UTC Timezone
 
     ${timestamp()}              -> 2025-12-24T13:37:00Z
+
+### unixTimestamp
+    unixTimestamp() will always return the current timestamp as Long and defaults to seconds since epoch
+
+    ${unixTimestamp()}          -> 1732426620
+    ${unixTimestamp(millis)}    -> 1732426620233
 
 ### randomTimestamp
     randomTimestamp() will choose a random point in time between the passed arguments
