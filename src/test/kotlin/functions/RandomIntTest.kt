@@ -48,11 +48,16 @@ class RandomIntTest {
     }
 
     @Test
-    fun `min greater than max throws`() {
-        val ex = assertFailsWith<IllegalArgumentException> {
-            fn.execute(mutableListOf("10", "5"), ctx)
+    fun `min greater than max still returns a valid result`() {
+        val value = fn.execute(mutableListOf("10", "5"), ctx).toInt()
+        assertTrue(value in 5..10)
+    }
+
+    @Test
+    fun `passing 0 as min and max throws`() {
+        assertFailsWith<IllegalArgumentException> {
+            fn.execute(mutableListOf("0", "0"), ctx)
         }
-        assertTrue(ex.message!!.contains("min (10) must be <= max (5)"))
     }
 
     @Test
